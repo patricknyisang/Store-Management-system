@@ -164,7 +164,7 @@
                         <tr>
                             <td>{{ $item->item_id }}</td>
                             <td>{{ $item->item }}</td>
-                            <td>{{ $item->quantity }}</td>
+                            <td>{{ $item->Quantity }}</td>
                             <td>{{ $item->deficit }}</td>
                             <td>{{ $item->price_per_item }}</td>
                             <td>{{ $item->itempicture }}</td>
@@ -210,27 +210,27 @@
 
                         <div class="form-group">
                             <label for="item_id">Item ID</label>
-                            <input type="number" id="item_id" name="item_id" placeholder="Enter item id" required>
+                            <input type="number" id="item_id" name="item_id" value="{{ $item->item_id }}" placeholder="Enter item id" required>
                         </div>
 
                         <div class="form-group">
                             <label for="item">Item</label>
-                            <input type="text" id="item" name="item" placeholder="Enter item name" step="1" required>
+                            <input type="text" id="item" name="item" value="{{ $item->item }}" placeholder="Enter item name" step="1" required>
                         </div>
 
                         <div class="form-group">
                             <label for="quantity">Quantity</label>
-                            <input type="number" id="quantity" name="quantity" placeholder="Enter item quantity" step="1" required>
+                            <input type="number" id="quantity" name="quantity" value="{{ $item->Quantity }}" placeholder="Enter item quantity" step="1" required>
                         </div>
 
                         <div class="form-group">
                             <label for="deficit">Deficit</label>
-                            <input type="number" id="deficit" name="deficit" placeholder="Enter item deficit" step="1" required>
+                            <input type="number" id="deficit" name="deficit" value="{{ $item->deficit }}" placeholder="Enter item deficit" step="1" required>
                         </div>
 
                         <div class="form-group">
                             <label for="price">Price per Item</label>
-                            <input type="number" id="price" name="price_per_item" placeholder="Enter price per item" step="1" required>
+                            <input type="number" id="price" name="price_per_item" value="{{ $item->price_per_item }}" placeholder="Enter price per item" step="1" required>
                         </div>
 
                         <div class="form-group">
@@ -251,25 +251,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Script to populate modal fields -->
-    <script>
-        $('#editModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Button that triggered the modal
-            var item_id = button.data('item_id'); // Extract info from data-* attributes
-            var item = button.data('item');
-            var quantity = button.data('quantity');
-            var price_per_item = button.data('price_per_item');
-            var deficit = button.data('deficit');
-            var itempicture = button.data('itempicture');
-
-            // Update the modal's content.
-            var modal = $(this);
-            modal.find('#item_id').val(item_id);
-            modal.find('#item').val(item);
-            modal.find('#quantity').val(quantity);
-            modal.find('#price').val(price_per_item);
-            modal.find('#deficit').val(deficit);
-            modal.find('#itempicture').val(itempicture);
-        });
-    </script>
+ 
 </body>
 </html>
