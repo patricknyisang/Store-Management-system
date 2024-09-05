@@ -25,7 +25,7 @@ class itemscontroller extends Controller
     }
     //update function
     public function updateitem(Request $request,$id){
-        $item_id= $request->get('item_id');
+            $item_id= $request->get('item_id');
             $item = $request->get('item');
             $quantity = $request->get('quantity');
             $deficit = $request->get('deficit');
@@ -40,7 +40,7 @@ class itemscontroller extends Controller
                 "price_per_item" => $price,
                 "itempicture" => $itempicture, 
         ]);
-        return redirect(url('items'))->with ('message', 'Update successfully');
+        return redirect(url('viewitem'))->with ('message', 'Update successfully');
     }
 
 public function getinsertview()
@@ -94,6 +94,9 @@ public function getinsertview()
 
                return redirect(url('/'))->with ('message', 'created successfully');
             }
+
+
+            
             public function getitems()
             {   
                 $fetchitems = TBitems::all();
@@ -101,5 +104,9 @@ public function getinsertview()
                 return view('fetch',compact("fetchitems"));
          
             }
-
+            protected function redirectTo() {
+                // Custom logic to determine where to redirect
+                return '/home';
+            }
+            
 }
